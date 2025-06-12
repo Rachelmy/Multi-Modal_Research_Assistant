@@ -49,7 +49,7 @@ def generate_text_summaries(texts, tables, summarize_texts=False):
     Give a concise summary of the table or text that is well-optimized for retrieval. Table \
     or text: {element} """
     prompt = PromptTemplate.from_template(prompt_text)
-    model = ChatGoogleGenerativeAI(model="gemini-pro",temperature=0, max_tokens=1024)
+    model = ChatGoogleGenerativeAI(model="models/gemini-1.5-pro-latest",temperature=0, max_tokens=1024)
     # Text summary chain
     summarize_chain = {"element": lambda x: x} | prompt | model | StrOutputParser()
 
@@ -70,7 +70,7 @@ def generate_text_summaries(texts, tables, summarize_texts=False):
     return text_summaries, table_summaries
 
 
-# encode image
+# convert image bytes to a text string
 def encode_image(image_path):
     """Getting the base64 string"""
     with open(image_path, "rb") as image_file:
@@ -78,7 +78,7 @@ def encode_image(image_path):
     
 def image_summarize(img_base64, prompt):
     """Make image summary"""
-    model_vision = ChatGoogleGenerativeAI(model="gemini-pro-vision",temperature=0, max_tokens=1024)
+    model_vision = ChatGoogleGenerativeAI(model="models/gemini-1.5-pro-latest",temperature=0, max_tokens=1024)
     msg = model_vision.invoke(
         [
             HumanMessage(

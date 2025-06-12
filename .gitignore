@@ -1,0 +1,161 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Environment variables and API keys
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# API keys (additional patterns)
+*api_key*
+*API_KEY*
+*secret*
+*SECRET*
+config/secrets.py
+secrets.json
+
+# Project-specific files
+# PDF uploads
+*.pdf
+/pdfs/
+/uploads/
+
+# Generated figures and images
+/figures/
+/images/
+/extracted_images/
+figure-*.jpg
+figure-*.png
+
+# Vector databases
+/chroma_db/
+/vectorstore/
+*.db
+*.sqlite
+
+# Streamlit
+.streamlit/
+streamlit_config.toml
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+/temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Models and large files
+*.model
+*.bin
+*.pkl
+*.pickle
+
+# Backup files
+*.bak
+*.backup
+
+# Data files (uncomment if you don't want to track data)
+# *.csv
+# *.json
+# *.xlsx
+
+# Documentation builds
+docs/_build/
