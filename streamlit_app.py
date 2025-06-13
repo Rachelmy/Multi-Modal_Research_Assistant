@@ -1,6 +1,8 @@
 import streamlit as st
 import base64
 import io
+import os
+import shutil
 from PIL import Image
 from multimodal_rag import MultiModalRAG
 from utils import is_image_data
@@ -32,6 +34,22 @@ def save_uploaded_file(uploaded_file):
         return None
 
 
+def delete_figures():
+    """
+    Delete all files in the figures directory
+    """
+    figures_dir = "./figures"
+    if os.path.exists(figures_dir):
+        try:
+            shutil.rmtree(figures_dir)
+            os.makedirs(figures_dir)  # Recreate the empty directory
+            return True
+        except Exception as e:
+            st.error(f"Error deleting figures: {e}")
+            return False
+    return True
+
+
 def main():
     st.title("Multi-Modal Research Assistant")
     
@@ -60,6 +78,13 @@ def main():
                     except Exception as e:
                         st.error(f"Error processing PDF: {e}")
                         st.session_state.pdf_loaded = False
+    else:
+        # If no PDF is uploaded (user clicked 'x'), delete figures and reset state
+        if 'pdf_loaded' in st.session_state and st.session_state.pdf_loaded:
+            if delete_figures():
+                st.session_state.pdf_loaded = False
+                st.session_state.current_pdf = None
+                st.session_state.rag_system = MultiModalRAG()
     
     # User input section
     st.subheader("Ask a Question")
